@@ -147,3 +147,17 @@ socket.on('connect', () => {
 socket.on('disconnect', () => {
   console.log('❌ Disconnected from server');
 });
+
+// Connection debugging
+socket.on('connect', () => {
+  console.log('✅ Socket connected!');
+  console.log('Socket ID:', socket.id);
+});
+
+socket.on('connect_error', (error) => {
+  console.log('❌ Connection error:', error);
+});
+
+socket.on('disconnect', (reason) => {
+  console.log('⚠️ Disconnected:', reason);
+});
