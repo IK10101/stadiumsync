@@ -1,4 +1,9 @@
-const socket = io();
+const socket = io(window.location.origin, {
+  transports: ['polling', 'websocket'],
+  reconnection: true,
+  reconnectionDelay: 1000,
+  reconnectionAttempts: 10
+});
 
 // Chart setup
 const ctx = document.getElementById('occupancyChart').getContext('2d');
